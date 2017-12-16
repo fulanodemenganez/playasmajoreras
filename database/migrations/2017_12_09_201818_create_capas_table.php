@@ -17,7 +17,7 @@ class CreateCapasTable extends Migration
             $table->increments('id');
             $table->string('nombre', 32);
             $table->string('imagen');
-            $table->string('descripcion',2000)->nullable();
+            $table->string('descripcion', 1024)->nullable();
             $table->timestamps();
         });
     }

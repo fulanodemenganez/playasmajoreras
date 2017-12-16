@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Capa;
 use App\User;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,7 +13,7 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
 
-   //metemos los arrays con los datos
+   //metemos el array con los datos
 	 private $arrayCapas = array(
         array(
             'pk' => '0',
@@ -31,21 +32,20 @@ Esta zona de playas se encuentra al sur de Costa Calma, y al no tener apenas hot
         )
     );
 
-	private $arrayUsers = array(
-        array(
-            'pk' => '0',
-            'name' => 'Julian',
-            'email' => 'julian@villajulian.net',
-            'password' => 'majada'
-             ),
 
+
+	 private $arrayUsers = array(
         array(
-            'pk' => '1',
-            'name' => 'Andres',
-            'email' => 'andresito@villasito.org',
+            'name' => 'Carlos Cifuentes',
+            'email' => 'c.cifuentes@gmail.com',
+            'password' => 'majada'
+        ),
+        array(
+            'name' => 'Andrea Garcia',
+            'email' => 'a.garcia@gmail.com',
             'password' => 'majada'
         )
-    ); 
+    );
 
     private function seedCatalog()
     {
@@ -60,14 +60,14 @@ Esta zona de playas se encuentra al sur de Costa Calma, y al no tener apenas hot
 
     }
 
-     private function seedUsers()
+    private function seedUsers()
     {
     	DB::table('users')->delete();
     	foreach( $this->arrayUsers as $user ) {
           $c = new User;
           $c->name = $user['name'];
           $c->email = $user['email'];
-          $c->password =bcrypt($user['password']);
+          $c->password = bcrypt($user['password']);
           $c->save();
         }
 
